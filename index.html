@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+
+    <div class="container-fluid border border-primary">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="#">Peoples Vote</a> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">About</a>
+              </div>
+            </div>
+        </nav>
+  
+
+        <div class="jumbotron text-center">
+          <h1 class="text-left">Brexit on Blockchain</h1>
+          <p></p> 
+        </div>
+    </div>   
+
+
+
+   <div class="container-fluid border border-dark">
+           <div class="jumbotron mt-3">
+               <div class="card-deck mb-2 text-center">
+                   <div class="card mb-2 shadow-sm">
+                           <img class="card-img-top" src="images/gb1.png" alt="Card image" style="width:100%">
+                           <div class="card-body">
+                             <h4 class="card-title">Leave</h4>
+                             <p class="card-text" id="voteLeave"></p>
+                             <button type="button" class="btn btn-primary" onClick="Vote(1);">Vote</button>
+                           </div>
+                   </div>
+                   <div class="card mb-2 shadow-sm">
+                           <img class="card-img-top" src="images/brexit-4011711_960_720.jpg" alt="Card image" style="width:100%">
+                           <div class="card-body">
+                             <h4 class="card-title">Please Vote</h4>
+                           </div>
+                   </div>
+                   <div class="card mb-2 shadow-sm">
+                           <img class="card-img-top" src="images/euro.png" alt="Card image" style="width:100%">
+                           <div class="card-body">
+                             <h4 class="card-title">Remain</h4>
+                             <p class="card-text" id="voteRemain"></p>
+                             <button type="button" class="btn btn-primary" onClick="Vote(2);">Vote</button>
+                           </div>
+                   </div>
+               </div>
+   
+           </div>
+   </div>
+
+
+
+    <div class="container-fluid">
+            <div class="jumbotron mt-3">
+              <div class="row">
+              <div class="col"> 
+                    <form name="donation">
+                            <div class="form-group row">
+                              <label for="donation" class="col-sm-2 col-form-label">Donation in Ether</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="donation" placeholder="ether">
+                              </div>
+                            </div>
+                           
+                            <fieldset class="form-group">
+                              <div class="row">
+                                <legend class="col-form-label col-sm-2 pt-0">Donate too</legend>
+                                <div class="col-sm-10">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1">
+                                    <label class="form-check-label" for="gridRadios1">
+                                      Leave
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2" checked>
+                                        <label class="form-check-label" for="gridRadios2">
+                                          Remain
+                                        </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                            
+                            <div class="form-group row">
+                              <div class="col-sm-10">
+                                <button type="button" class="btn btn-primary" onClick="donateForm();">Donate</button>
+                              </div>
+                            </div>
+                    </form>
+            </div> 
+            <div class="col">
+              <h1>Current Results</h1>
+              <br>
+              <p id="leaveAmount"></p> 
+              <p id="remainAmount"></p>
+              <p id="contractOwner"></p>
+              <p id="remainOwner"></p> 
+              <p id="leaveOwner"></p> 
+
+
+            </div>  
+            </div>     
+            </div>    
+    </div>
+
+
+
+
+    </div>
+</body>
+</html>
