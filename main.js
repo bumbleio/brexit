@@ -418,10 +418,10 @@ function Vote(userVote) {
 
 
 function donate(recipitant, amount) {
-    var amountInWei
+	var weiAmount = web3.toWei(amount, 'ether');
     //amountInWei = amount; 
     //console.log("amount = " + amount + "recipitent = " + recipitant)
-    tokenContract.donate.sendTransaction(recipitant,{value:amount}, function (error, result) {
+    tokenContract.donate.sendTransaction(recipitant,{value:weiAmount}, function (error, result) {
   if (!error) {
         console.log('Donation Successful');
     } else {
@@ -430,13 +430,15 @@ function donate(recipitant, amount) {
 });
 }
 
+
+
 function displayDonations() {
 
 tokenContract.remainTotal( function (error, result) {
 if (!error) {
     console.log('Leave Donation Amount = ' + result);
 
-    document.getElementById("leaveAmount").innerHTML ='Leave Donation Amount = ' + result;
+    document.getElementById("leaveAmount").innerHTML ='Leave Donation Amount = ' + web3.fromWei(result, 'ether');
 } else {
     console.error(error);
 }    
@@ -445,7 +447,7 @@ if (!error) {
  tokenContract.leaveTotal( function (error, result) {
  if (!error) {
      console.log('Remain Donation Amount = ' + result);
-     document.getElementById("remainAmount").innerHTML ='Remain Donation Amount = ' + result;
+     document.getElementById("remainAmount").innerHTML ='Remain Donation Amount = ' + web3.fromWei(result, 'ether');
  } else {
      console.error(error);
  }    
@@ -455,10 +457,10 @@ if (!error) {
 
 
 function donateForm() {
-    var amountInWei;
+    var amountInEther;
     var option;
-    amountInWei = document.getElementById("donation").value;
-    console.log(amountInWei);
+    amountInEther = document.getElementById("donation").value;
+    console.log(amountInEther);
      // radio
     var radios = document.getElementsByName('gridRadios');
 
@@ -466,7 +468,7 @@ function donateForm() {
     if (radios[i].checked) {
         option = radios[i].value;
         console.log(option);
-        donate(option, amountInWei);
+        donate(option, amountInEther);
         break;
     }
 }
