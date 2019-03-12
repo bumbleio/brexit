@@ -10,8 +10,6 @@ window.addEventListener('load', function () {
     } else {
         console.log('No Web3 Detected... using HTTP Provider')
         window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545")); // change for your provider, this is currently for ganache-cli
-
-
     }
 });
 
@@ -257,7 +255,7 @@ contractABI = [
 
 
 
-    contractAddress = '0x9c7c5c5916508b8d0c120cbc309b8543467c73da';    // add your contract address              
+    contractAddress = '0xc35bfb2aca32849ab5a43d2751bcf3b23411e853';    // add your contract address              
     tokenContract = web3.eth.contract(contractABI).at(contractAddress);
     
     // sets up a event object that connects to our smart contract event

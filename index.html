@@ -1,75 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap 4 Example</title>
+  <title>Brexit on Blockchain</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="main.js"></script>
+
 </head>
-<body>
+<body style="background-image: url('./images/ocean.jpg')">
+ 
+    
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+          <img src="/images/heartbreak-brexit-256.png" width="200" height="200" class="d-inline-block" alt="">
+          <strong style="font-size:200%"> Brexit on Blockchain</strong> 
+        </a>
+        <nav class="nav">
+            <a class="nav-link active" style="font-size:150%" href="#">Home</a>
+            <a class="nav-link" style="font-size:150%" href="#">About</a>
+            <a class="nav-link" style="font-size:150%" href="#">Ropsten Faucet</a>
+          </nav>
+      </nav>
 
-    <div class="container-fluid border border-primary">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-            <a class="navbar-brand" href="#">Peoples Vote</a> 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">About</a>
-              </div>
-            </div>
-        </nav>
+
   
-
-        <div class="jumbotron text-center">
-          <h1 class="text-left">Brexit on Blockchain</h1>
-          <p></p> 
-        </div>
-    </div>   
-
-
-
-   <div class="container-fluid border border-dark">
-           <div class="jumbotron mt-3">
-               <div class="card-deck mb-2 text-center">
-                   <div class="card mb-2 shadow-sm">
-                           <img class="card-img-top" src="images/gb1.png" alt="Card image" style="width:100%">
+   <div class="container-fluid text-primary bg-primary " style="background-image: url('./images/ocean.jpg')">
+      <div class="row">
+           <div class="jumbotron my-auto bg-danger col-sm-6 offset-sm-3" style="background-image: url('./images/ocean.jpg')">
+               <div class="card-deck mb-2 text-center" style="width:100%">
+                   <div class="card border-0" style="background-image: url('./images/ocean.jpg')">
+                           <img class="card-img-top" src="images/United-Kingdom-icon.png" alt="Card image" style="width:100%">
                            <div class="card-body">
                              <h4 class="card-title">Leave</h4>
                              <p class="card-text" id="voteLeave"></p>
                              <button type="button" class="btn btn-primary" onClick="Vote(1);">Vote</button>
                            </div>
                    </div>
-                   <div class="card mb-2 shadow-sm">
+                   <div class="card mb-2 border-0" style="background-image: url('./images/ocean.jpg')" >
                            <img class="card-img-top" src="images/brexit-4011711_960_720.jpg" alt="Card image" style="width:100%">
                            <div class="card-body">
                              <h4 class="card-title">Please Vote</h4>
                            </div>
                    </div>
-                   <div class="card mb-2 shadow-sm">
-                           <img class="card-img-top" src="images/euro.png" alt="Card image" style="width:100%">
+                   <div class="card mb-2 border-0" style="background-image: url('./images/ocean.jpg')">
+                           <img class="card-img-top" src="images/Europe-icon.png" alt="Card image" style="width:100%">
                            <div class="card-body">
                              <h4 class="card-title">Remain</h4>
                              <p class="card-text" id="voteRemain"></p>
                              <button type="button" class="btn btn-primary" onClick="Vote(2);">Vote</button>
                            </div>
                    </div>
-               </div>
+                </div>
+            </div>
+      </div>
+    </div>
    
-           </div>
-   </div>
 
 
 
-    <div class="container-fluid">
-            <div class="jumbotron mt-3">
+    <div class="container-fluid text-primary" style="background-image: url('./images/ocean.jpg')">
+            <div class="jumbotron" style="background-image: url('./images/ocean.jpg')">
               <div class="row">
-              <div class="col"> 
+              <div class="col-sm-3 offset-sm-3"> 
                     <form name="donation">
                             <div class="form-group row">
                               <label for="donation" class="col-sm-2 col-form-label">Donation in Ether</label>
@@ -105,7 +100,7 @@
                             </div>
                     </form>
             </div> 
-            <div class="col">
+            <div class="col-sm-3">
               <h1>Current Results</h1>
               <br>
               <p id="leaveAmount"></p> 
@@ -117,12 +112,12 @@
 
             </div>  
             </div>     
-            </div>    
-    </div>
+            </div> 
+            </div>
+            <br>   
+            <br>
+            <br>
+            <br>
 
-
-
-
-    </div>
 </body>
 </html>
