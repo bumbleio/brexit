@@ -1,14 +1,16 @@
 window.addEventListener('load', function () {
     if (typeof web3 !== 'undefined') {
         console.log('Web3 Detected! ' + web3.currentProvider.constructor.name)
-        window.web3 = new Web3(web3.currentProvider);
+		window.web3 = new Web3(web3.currentProvider);
+		// displayMmWarning("hidden");
         displayDonations();
         getVoteCount();
         getContractOwner();
         getLeaveOwner();
         getRemainOwner();
     } else {
-        console.log('No Web3 Detected... using HTTP Provider')
+		console.log('No Web3 Detected... using HTTP Provider')
+		displayMmWarning("visible");
         window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545")); // change for your provider, this is currently for ganache-cli
     }
 });
@@ -385,7 +387,7 @@ function getVoteCount() {
  tokenContract.Options(1, function (error, result) {
  if (!error) {
      console.log('leave count = ' + result[2]);
-     document.getElementById("voteLeave").innerHTML ='Votes for leave = ' + result[2];
+     document.getElementById("voteLeave").innerHTML ='Votes for leave: ' + result[2];
  } else {
      console.error(error);
  }    
@@ -394,7 +396,7 @@ function getVoteCount() {
   tokenContract.Options(2, function (error, result) {
   if (!error) {
       console.log('Remain count = ' + result[2]);
-      document.getElementById("voteRemain").innerHTML ='Votes for remain = ' + result[2];
+      document.getElementById("voteRemain").innerHTML ='Votes for remain: ' + result[2];
   } else {
       console.error(error);
   }    
@@ -436,7 +438,7 @@ tokenContract.remainTotal( function (error, result) {
 if (!error) {
     console.log('Leave Donation Amount = ' + result);
 
-    document.getElementById("leaveAmount").innerHTML ='Leave Donation Amount = ' + web3.fromWei(result, 'ether');
+    document.getElementById("leaveAmount").innerHTML ='Leave Donation Amount: ' + web3.fromWei(result, 'ether');
 } else {
     console.error(error);
 }    
@@ -445,7 +447,7 @@ if (!error) {
  tokenContract.leaveTotal( function (error, result) {
  if (!error) {
      console.log('Remain Donation Amount = ' + result);
-     document.getElementById("remainAmount").innerHTML ='Remain Donation Amount = ' + web3.fromWei(result, 'ether');
+     document.getElementById("remainAmount").innerHTML ='Remain Donation Amount: ' + web3.fromWei(result, 'ether');
  } else {
      console.error(error);
  }    
@@ -472,4 +474,10 @@ function donateForm() {
 }
     
         
+}
+
+function displayMmWarning(hideOrShow) {
+	document.getElementById("metamaskWarning").style.visibility = hideOrShow;
+	document.getElementById("metamaskWarning").style.color = "red";
+
 }
