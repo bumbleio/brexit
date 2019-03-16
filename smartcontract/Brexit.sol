@@ -26,8 +26,6 @@ contract brexit {
     // owner change event
     event ownerChangeEvent ( address _newOwner, uint _optionId );
 
-    event donateEvent ( uint _optionId );
-
     constructor () public {
         contractOwner = msg.sender;
         addOption("Leave");
@@ -52,10 +50,8 @@ contract brexit {
         require(_optionId > 0 && _optionId <= optionCount);
         if(_optionId == 1) {
             leaveTotal += msg.value;
-            emit donateEvent (_optionId);
         } else if (_optionId == 2) {
             remainTotal += msg.value; 
-            emit donateEvent (_optionId);
         }
     }
 
@@ -75,7 +71,6 @@ contract brexit {
         require(_amount <= leaveTotal);
         leaveTotal -= _amount;
         msg.sender.transfer(_amount);
-        emit donateEvent(1);
     }
 
     function withdrawRemain(uint _amount) public {
@@ -83,7 +78,6 @@ contract brexit {
         require(_amount <= remainTotal);
         remainTotal -= _amount;
         msg.sender.transfer(_amount);
-        emit donateEvent(2);
     }
 
 }

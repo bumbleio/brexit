@@ -11,7 +11,12 @@ window.addEventListener('load', function () {
     } else {
 		console.log('No Web3 Detected... using HTTP Provider')
 		displayMmWarning("visible");
-        window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545")); // change for your provider, this is currently for ganache-cli
+		window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/486eb31222ab427d9a80d5efa33280ce")); // change for your provider, this is currently for ganache-cli
+		displayDonations();
+        getVoteCount();
+        getContractOwner();
+        getLeaveOwner();
+        getRemainOwner();
     }
 });
 
@@ -71,6 +76,20 @@ contractABI = [
 			}
 		],
 		"name": "withdrawLeave",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdrawRemain",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -257,7 +276,7 @@ contractABI = [
 
 
 
-    contractAddress = '0xc35bfb2aca32849ab5a43d2751bcf3b23411e853';    // add your contract address              
+    contractAddress = '0xba1777f4646ea9e32eafa6cbf6fa5c7dec87698f';    // add your contract address              
     tokenContract = web3.eth.contract(contractABI).at(contractAddress);
     
     // sets up a event object that connects to our smart contract event
@@ -436,9 +455,9 @@ function displayDonations() {
 
 tokenContract.remainTotal( function (error, result) {
 if (!error) {
-    console.log('Leave Donation Amount = ' + result);
+    console.log('Remain Donation Amount = ' + result);
 
-    document.getElementById("leaveAmount").innerHTML ='Leave Donation Amount: ' + web3.fromWei(result, 'ether');
+    document.getElementById("leaveAmount").innerHTML ='Remain Donation Amount: ' + web3.fromWei(result, 'ether');
 } else {
     console.error(error);
 }    
@@ -446,8 +465,8 @@ if (!error) {
 
  tokenContract.leaveTotal( function (error, result) {
  if (!error) {
-     console.log('Remain Donation Amount = ' + result);
-     document.getElementById("remainAmount").innerHTML ='Remain Donation Amount: ' + web3.fromWei(result, 'ether');
+     console.log('Leave Donation Amount = ' + result);
+     document.getElementById("remainAmount").innerHTML ='Leave Donation Amount: ' + web3.fromWei(result, 'ether');
  } else {
      console.error(error);
  }    
